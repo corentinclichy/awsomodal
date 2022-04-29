@@ -1,17 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from 'react';
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import { render } from "react-dom";
+import { Modal } from "./lib";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+
+    const [ isOpen, setIsOpen ] = useState(false);
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+
+
+    const style = {
+        content: {
+
+        },
+        backdrop: {
+
+        }
+    };
+
+    return (
+        <div style={{ width: 640, margin: "15px auto" }}>
+            <h1>Modaly</h1>
+            <button onClick={() => { setIsOpen(true); }} >open modal</button>
+            <Modal isOpen={isOpen} onRequestClose={closeModal} hasBackdrop={true} style={style} >
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque beatae quia, asperiores eveniet ut, iure voluptas earum quos quo reprehenderit incidunt atque quasi voluptatem enim vel ipsa temporibus debitis odit?</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque beatae quia, asperiores eveniet ut, iure voluptas earum quos quo reprehenderit incidunt atque quasi voluptatem enim vel ipsa temporibus debitis odit?</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque beatae quia, asperiores eveniet ut, iure voluptas earum quos quo reprehenderit incidunt atque quasi voluptatem enim vel ipsa temporibus debitis odit?</p>
+            </Modal>
+        </div>
+    );
+};
+
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
