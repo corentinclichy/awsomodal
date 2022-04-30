@@ -1,4 +1,4 @@
-# Awesomodal - Simple react.js modal
+# Awsomodal - Simple react.js modal
 
 ## About
 Simple react modal to use for your next project, with fully custom styling options.
