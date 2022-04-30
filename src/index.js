@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import ReactDOM from "react-dom/client";
-
-import { render } from "react-dom";
 import { Modal } from "./lib";
 
 const App = () => {

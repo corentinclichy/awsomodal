@@ -5,7 +5,6 @@ import { ReactComponent as Close } from './icon/close.svg';
 
 const Modal = ({ isOpen, onRequestClose, children, hasBackdrop, style }) => {
 
-    const ESC_KEY = 27;
     let modalStyle = {};
     let backdropStyle = {};
 
@@ -17,7 +16,7 @@ const Modal = ({ isOpen, onRequestClose, children, hasBackdrop, style }) => {
         };
         window.addEventListener('keydown', close);
         return () => window.removeEventListener('keydown', close);
-    }, []);
+    }, [ onRequestClose ]);
 
     backdropStyle.background = hasBackdrop ? 'rgba(0, 0, 0, 0.85)' : 'none';
 
@@ -32,15 +31,7 @@ const Modal = ({ isOpen, onRequestClose, children, hasBackdrop, style }) => {
 
     }
 
-
     backdropStyle = { ...backdropStyle, display: isOpen ? 'flex' : 'none' };
-
-
-
-
-    console.log(backdropStyle);
-    console.log(modalStyle);
-
 
     return (
         <div className="backdrop" style={backdropStyle} >
